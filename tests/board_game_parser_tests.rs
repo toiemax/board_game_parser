@@ -1,5 +1,4 @@
-
-use anyhow::{Context};
+use anyhow::Context;
 use board_game_parser::{Grammar, Rule};
 use pest::Parser;
 
@@ -130,7 +129,8 @@ fn test_price_parsing() -> anyhow::Result<()> {
 
 #[test]
 fn test_game_parsing() -> anyhow::Result<()> {
-    let input = "Name: Chess\nAuthor: John Doe\nAge: 10\nTime: 30-60\nPlayers: 2-4\nPrice: 30 USD\n";
+    let input =
+        "Name: Chess\nAuthor: John Doe\nAge: 10\nTime: 30-60\nPlayers: 2-4\nPrice: 30 USD\n";
     let pair = Grammar::parse(Rule::game, input)
         .context("Failed to parse game")?
         .next()

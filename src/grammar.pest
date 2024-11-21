@@ -1,14 +1,51 @@
+// WHITESPACE: Defines acceptable whitespace characters. It includes space (' ') and tab ('\t').
+// This is used as the base for more complex whitespace rules.
 WHITESPACE = { " " | "\t" }
+
+// SPACE: Matches one or more consecutive WHITESPACE characters.
+// It is used to handle spacing between parts of rules.
 SPACE = { WHITESPACE+ }
 
+// games: The root rule that represents a list of games. Each game is parsed as
+// a sequence of game definitions separated by either newlines or spaces.
 games = { (game ~ (NEWLINE | SPACE))* }
+
+// game: Defines the structure of a game entry. Each game consists of the fields:
+// name, author, age, time, players, and price. Fields are parsed in this order.
 game = { name ~ author ~ age ~ time ~ players ~ price }
+
+// name: Parses the game's name. The field starts with "Name:" and may optionally
+// be followed by a space, then any text until the end of the line.
 name = { "Name:" ~ SPACE? ~ any_text }
+
+// author: Parses the author of the game. Similar to `name`, but starts with "Author:".
 author = { "Author:" ~ SPACE? ~ any_text }
+
+// age: Parses the recommended age for the game. The field starts with "Age:",
+// optionally followed by a space, and then a number (integer or decimal), ending with a newline.
 age = { "Age:" ~ SPACE? ~ number ~ NEWLINE }
+
+// time: Parses the duration of the game. The field starts with "Time:",
+// optionally followed by a space, then a number. A range can be indicated by using "-" between two numbers.
+// The field ends with a newline.
 time = { "Time:" ~ SPACE? ~ number ~ ("-" ~ number)? ~ NEWLINE }
+
+// players: Parses the number of players. Similar to `time`, this field starts
+// with "Players:" and supports a range of numbers. It ends with a newline.
 players = { "Players:" ~ SPACE? ~ number ~ ("-" ~ number)? ~ NEWLINE }
+
+// price: Parses the price of the game. The field starts with "Price:",
+// optionally followed by a space, followed by a number, and optionally a currency (UAH, EUR, USD).
+// The field ends with a newline.
 price = { "Price:" ~ SPACE? ~ number ~ SPACE? ~ currency? ~ NEWLINE }
+
+// number: Defines the format of numeric values. This includes optional negative signs,
+// integers, and decimals. For decimals, a period ('.') separates the integer and fractional parts.
 number = { ("-"? ~ ASCII_DIGIT+) ~ (("." ~ ASCII_DIGIT+)?) }
+
+// currency: Enumerates valid currency codes. Currently supported currencies are UAH, EUR, and USD.
 currency = { "UAH" | "EUR" | "USD" }
+
+// any_text: Matches any text content, excluding newline characters. It starts with optional spaces,
+// followed by any characters until a newline.
 any_text = { SPACE? ~ (!NEWLINE ~ ANY)+ ~ NEWLINE }

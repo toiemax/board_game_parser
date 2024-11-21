@@ -24,7 +24,7 @@ fn main() -> Result<()> {
                 - Maksym Karpinskyi (karpinskyimaksym@gmail.com)
             "
             );
-        },
+        }
 
         _ => {
             if args.len() < 3 {
