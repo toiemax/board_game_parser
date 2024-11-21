@@ -5,6 +5,11 @@
 
 The **Board Game Parser** is a Rust-based utility designed to parse structured information about board games and convert it into a serialized JSON format. This tool processes text files containing data about board games and extracts details such as the game's name, author, age suitability, playtime, player count, and price.
 
+### Links
+
+- [Documentation on docs.rs](https://docs.rs/board_game_parser/0.1.0/board_game_parser/)
+- [Crate on crates.io](https://crates.io/crates/board_game_parser)
+
 ## Features
 
 - Parses text files with structured board game data.
