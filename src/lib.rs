@@ -1,6 +1,10 @@
+#![doc = "Documentation"]
+
 use pest::iterators::Pair;
 use pest_derive::Parser;
 use serde::{Deserialize, Serialize};
+use thiserror::Error;
+
 
 #[derive(Parser)]
 #[grammar = "./grammar.pest"]
@@ -16,6 +20,18 @@ pub struct Game {
     min_players: u8,
     max_players: Option<u8>,
     price: f64,
+}
+
+#[derive(Error, Debug)]
+pub enum GameParseError {
+    #[error("Invalid number format: {0}")]
+    InvalidNumberFormat(String),
+
+    #[error("Missing required field: {0}")]
+    MissingField(String),
+
+    #[error("Invalid price format: {0}")]
+    InvalidPriceFormat(String),
 }
 
 impl Game {
