@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Monopoly",
+    "author": "Charles Darrow",
+    "age": 8,
+    "min_time": 30,
+    "max_time": 90,
+    "min_players": 2,
+    "max_players": 8,
+    "price": 499.99
+  },
+  {
+    "name": "Settlers of Catan",
+    "author": "Klaus Teuber",
+    "age": 10,
+    "min_time": 60,
+    "max_time": null,
+    "min_players": 3,
+    "max_players": 4,
+    "price": 999.99
+  },
+  {
+    "name": "Carcassonne",
+    "author": "Klaus-Jürgen Wrede",
+    "age": 7,
+    "min_time": 35,
+    "max_time": null,
+    "min_players": 2,
+    "max_players": 5,
+    "price": 899.99
+  }
+]

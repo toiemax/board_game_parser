@@ -1,0 +1,14 @@
+WHITESPACE = { " " | "\t" }
+SPACE = { WHITESPACE+ }
+
+games = { (game ~ (NEWLINE | SPACE))* }
+game = { name ~ author ~ age ~ time ~ players ~ price }
+name = { "Name:" ~ SPACE? ~ any_text }
+author = { "Author:" ~ SPACE? ~ any_text }
+age = { "Age:" ~ SPACE? ~ number ~ NEWLINE }
+time = { "Time:" ~ SPACE? ~ number ~ ("-" ~ number)? ~ NEWLINE }
+players = { "Players:" ~ SPACE? ~ number ~ ("-" ~ number)? ~ NEWLINE }
+price = { "Price:" ~ SPACE? ~ number ~ SPACE? ~ currency? ~ NEWLINE }
+number = { ("-"? ~ ASCII_DIGIT+) ~ (("." ~ ASCII_DIGIT+)?) }
+currency = { "UAH" | "EUR" | "USD" }
+any_text = { SPACE? ~ (!NEWLINE ~ ANY)+ ~ NEWLINE }

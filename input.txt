@@ -1,0 +1,27 @@
+Name: Monopoly
+Author: Charles Darrow
+Age: 8
+Time: 30-90
+Players: 2-8
+Price: 499.99 UAH
+
+Name: Settlers of Catan
+Author: Klaus Teuber
+Age: 10
+Time: 60
+Players: 3-4
+Price: 999.99 UAH
+
+Name: Carcassonne
+Author: Klaus-Jürgen Wrede
+Age: 7
+Time: 35
+Players: 2-5
+Price: 899.99 UAH
+
+Name: Ticket to Ride
+Author: Alan R. Moon
+Age: 8
+Time: 30-60
+Players: 2-5
+Price: 1099.99 UAH
